@@ -8,7 +8,7 @@ const Trending = () => {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3NWFjMWU5YzI2NjNlMmYxMTQzMmMyNmU3ZTRlY2I4MyIsInN1YiI6IjY0MzI2MDRmNmRlYTNhMDBiNTRmNGU5NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.9bgEy_iDWQCzSslh0UtPE0AdrA7H1liKu-kgQuEUpRU'
+      Authorization: `Bearer ${import.meta.env.VITE_RAPIDAPI_KEY}`
     }
   };
   useEffect(() => {
@@ -22,7 +22,6 @@ const Trending = () => {
   }, [])
 
   return (
-    // <div>{movies.map((movieReq) => <MovieTrending key={movieReq.id} {...movieReq}/>)}</div>
     <div className='bg-gray-900'>
       <span className='text-white text-xl md:text-2xl lg:text-4xl font-bold flex justify-center items-center'>TRENDING</span>
       <div className='mx-auto grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-2 grid:cols-2'>
