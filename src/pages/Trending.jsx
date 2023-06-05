@@ -24,8 +24,8 @@ const Trending = () => {
   return (
     // <div>{movies.map((movieReq) => <MovieTrending key={movieReq.id} {...movieReq}/>)}</div>
     <div className='bg-gray-900'>
-      <span>Trending</span>
-      <div>
+      <span className='text-white text-xl md:text-2xl lg:text-4xl font-bold flex justify-center items-center'>TRENDING</span>
+      <div className='mx-auto grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-2 grid:cols-2'>
         {
         movies && movies.map((c) => (
           <MovieTrending
@@ -41,6 +41,7 @@ const Trending = () => {
         ))
         }
       </div>
+      <span>Trending</span>
     </div>
   )
 }
