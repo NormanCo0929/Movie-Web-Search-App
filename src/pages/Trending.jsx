@@ -8,7 +8,7 @@ const Trending = () => {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: `Bearer ${import.meta.env.VITE_RAPIDAPI_KEY}`
+      Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3NWFjMWU5YzI2NjNlMmYxMTQzMmMyNmU3ZTRlY2I4MyIsInN1YiI6IjY0MzI2MDRmNmRlYTNhMDBiNTRmNGU5NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.9bgEy_iDWQCzSslh0UtPE0AdrA7H1liKu-kgQuEUpRU`
     }
   };
   useEffect(() => {
