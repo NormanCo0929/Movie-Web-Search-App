@@ -5,7 +5,6 @@ import Pagination from '../components/Pagination';
 const Trending = () => {
   const [movies, setMovies] = useState([])
   const [page, setPage] = useState(1)
-  const base_url = 'https://api.themoviedb.org/3/trending/movie/day?language=en-US'
 
   const options = {
     method: 'GET',
@@ -18,7 +17,7 @@ const Trending = () => {
     fetch(`https://api.themoviedb.org/3/trending/movie/day?language=en-US&page=${page}`, options)
       .then(response => response.json())
       .then(data => {
-        console.log(data)
+        // console.log(data)
         setMovies({
           list: data?.results,
           totalPage: data?.total_pages

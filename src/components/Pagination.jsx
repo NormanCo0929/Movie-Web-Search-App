@@ -40,7 +40,7 @@ const Pagination = ({current, onChange}) => {
 
   return (
     <nav aria-label="Page navigation example">
-      <ul className="inline-flex -space-x-px">
+      <ul className="inline-flex items-center -space-x-px">
         {items}
       </ul>
     </nav>
