@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import MovieTrending from '../components/MovieTrending';
+import Pagination from '../components/Pagination';
 
 const Trending = () => {
   const [movies, setMovies] = useState([])
+  const [page, setPage] = useState(1)
+  const base_url = 'https://api.themoviedb.org/3/trending/movie/day?language=en-US'
 
   const options = {
     method: 'GET',
@@ -12,21 +15,24 @@ const Trending = () => {
     }
   };
   useEffect(() => {
-    fetch('https://api.themoviedb.org/3/trending/movie/day?language=en-US', options)
+    fetch(`https://api.themoviedb.org/3/trending/movie/day?language=en-US&page=${page}`, options)
       .then(response => response.json())
       .then(data => {
-        // console.log(data.results)
-        setMovies(data.results)
+        console.log(data)
+        setMovies({
+          list: data?.results,
+          totalPage: data?.total_pages
+        })
       })
       .catch(err => console.error(err));
-  }, [])
+  }, [page])
 
   return (
     <div className='bg-gray-900'>
       <span className='text-white text-xl md:text-2xl lg:text-4xl font-bold flex justify-center items-center'>TRENDING</span>
       <div className='mx-auto grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-2 grid:cols-2'>
         {
-        movies && movies.map((c) => (
+        movies && movies.list?.map((c) => (
           <MovieTrending
             key = {c.id}
             id = {c.id}
@@ -40,7 +46,11 @@ const Trending = () => {
         ))
         }
       </div>
-      <span>Trending</span>
+      <div className='flex justify-center items-center py-2'>
+        {
+          movies && movies.totalPage > 1 && <Pagination total={movies.totalPage} current={page} onChange={(page) => setPage(page)}/>
+        }
+      </div>
     </div>
   )
 }

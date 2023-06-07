@@ -12,11 +12,12 @@ const MovieTrending = ({
   overview
 }) => {
   return (
-    <div className='flex flex-col mx-24 my-2 sm:m-2 md:m-2 lg:m-2 xl:m-2 p-2 bg-gray-700 rounded-xl relative hover:bg-gray-300 text-green-300 hover:text-black'>
+    <div className='flex flex-col mx-24 my-2 sm:m-2 md:m-2 lg:m-2 xl:m-2 p-2 bg-gray-700 rounded-xl relative hover:bg-gray-300 text-green-300 hover:text-black text-center'>
       <img src={ poster ? `${img_300}/${poster}` : unavailable} alt={title}
       className='rounded-xl'/>
       <b>{title}</b>
-      <div className='flex justify-between'>
+      <div className='flex justify-between pb-2'>
+        <span>Rating: <span>{(Math.round(vote_average * 100) / 100).toFixed(1)}</span></span>
         <span>{media_type === "tv" ? "TV Series" : "Movie"}</span>
         <span>{format(new Date(date), "MMMM dd, yyyy")}</span>
       </div>
