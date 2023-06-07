@@ -7,7 +7,7 @@ const Pagination = ({current, onChange}) => {
   }
 
   let items = []
-  const numOfPages = 10
+  const numOfPages = 5
 
   if (current > 1) {
     items.push(
